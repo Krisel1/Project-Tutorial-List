@@ -14,12 +14,15 @@ public class TutorialServices {
     @Autowired
     ITutorialRepository iTutorialRepository;
 
-    public ArrayList<Tutorial> getAllTutorials(){
-        return (ArrayList<Tutorial>) iTutorialRepository.findAll();
-    }
+//create
     public Tutorial createTutorial (Tutorial newTutorial){
         return iTutorialRepository.save(newTutorial);
     }
+//read
+    public ArrayList<Tutorial> getAllTutorials(){
+        return (ArrayList<Tutorial>) iTutorialRepository.findAll();
+    }
+//delete
     public void deleteTutorial(Tutorial newTutorial){
         iTutorialRepository.delete(newTutorial);
     }
