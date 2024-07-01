@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
@@ -17,22 +18,39 @@ public class TutorialController {
 
     @Autowired
     private TutorialServices tutorialServices;
-
-    @GetMapping("/tutorials")
-    public ArrayList<Tutorial> getAllTutorials() {
-        return (ArrayList<Tutorial>) tutorialServices.getAllTutorials();
-    }
-
     @PostMapping("/add")
     public Tutorial createTutorial(@RequestBody Tutorial newTutorial) {
         return tutorialServices.createTutorial(newTutorial);
     }
-
+    @GetMapping("/tutorials")
+    public ArrayList<Tutorial> getAllTutorials() {
+        return (ArrayList<Tutorial>) tutorialServices.getAllTutorials();
+    }
     @GetMapping("/saludo")
     public String sayHello() {
 
         return "hola desde la peticion get de tutorial project";
     }
+
+    @PutMapping("/update/{id}")
+    public Tutorial updateTutorial(@PathVariable("id")int id, @RequestBody Tutorial updatedTutorial){
+            Optional<Tutorial> existingTutorialOptional = tutorialServices.getTutorialById(id);
+
+            if (existingTutorialOptional.isPresent()) {
+                Tutorial existingTutorial = existingTutorialOptional.get();
+
+                // Update the fields of existingTutorial with the values from updatedTutorial
+                existingTutorial.setName(updatedTutorial.getName());
+                existingTutorial.setDescription(updatedTutorial.getDescription());
+
+                // Save the updated tutorial back to the database
+                return tutorialServices.updateTutorial(existingTutorial);
+            } else {
+                throw new RuntimeException("Tutorial not found with id: " + id);
+            }
+        }
+
+
     @DeleteMapping("/delete")
     public void deleteTutorial(@RequestBody Tutorial newTutorial){
         tutorialServices.deleteTutorial(newTutorial);

@@ -17,28 +17,35 @@ public class TutorialServices {
     @Autowired
     ITutorialRepository iTutorialRepository;
 
-//create
-    public Tutorial createTutorial (Tutorial newTutorial){
+    //create
+    public Tutorial createTutorial(Tutorial newTutorial) {
         return iTutorialRepository.save(newTutorial);
     }
-//update
-/*public Tutorial updateTutorial (Tutorial newTutorial){
-        Optional<Tutorial> optionalTutorial = iTutorialRepository.findById(getId());
 
-    return iTutorialRepository.save(newTutorial);
-}*/
-//read
-    public ArrayList<Tutorial> getAllTutorials(){
+    //update
+    public Tutorial updateTutorial(Tutorial tutorial) {
+        return iTutorialRepository.save(tutorial);
+    }
+
+    //read
+    public ArrayList<Tutorial> getAllTutorials() {
         return (ArrayList<Tutorial>) iTutorialRepository.findAll();
     }
-//delete
-    public void deleteTutorial(Tutorial newTutorial){
+
+    public Optional<Tutorial> getTutorialById(int id) {
+        return iTutorialRepository.findById(id);
+    }
+
+    //delete
+    public void deleteTutorial(Tutorial newTutorial) {
         iTutorialRepository.delete(newTutorial);
     }
-    public void deleteTutorialById(int id){
+
+    public void deleteTutorialById(int id) {
         iTutorialRepository.deleteById(id);
     }
-    public void deleteAllTutorials(List<Tutorial> tutorials){
+
+    public void deleteAllTutorials(List<Tutorial> tutorials) {
         iTutorialRepository.deleteAll(tutorials);
     }
 

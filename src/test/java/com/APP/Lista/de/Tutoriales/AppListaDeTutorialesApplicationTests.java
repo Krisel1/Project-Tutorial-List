@@ -33,12 +33,29 @@ class AppListaDeTutorialesApplicationTests {
 	}
 
 	@Test
-	public void testCreateTutorial(){
+	public void testIdInCreateTutorial(){
 		//Arrange
 		Tutorial newTutorial = new Tutorial();
 		newTutorial.setId(1);
+
+
+		when(iTutorialRepository.save(any(Tutorial.class))).thenReturn(newTutorial);
+
+		//Act
+		Tutorial result = tutorialServices.createTutorial(newTutorial);
+
+		//Assert
+		assertNotNull(result);
+		assertEquals(1, result.getId());
+		verify(iTutorialRepository).save(newTutorial);
+	}
+	@Test
+	public void testNameInCreateTutorial(){
+		//Arrange
+		Tutorial newTutorial = new Tutorial();
+
 		newTutorial.setName("New Tutorial");
-		newTutorial.setDescription("Here goes a detailed description of tutorial");
+
 
 		when(iTutorialRepository.save(any(Tutorial.class))).thenReturn(newTutorial);
 
@@ -48,6 +65,24 @@ class AppListaDeTutorialesApplicationTests {
 		//Assert
 		assertNotNull(result);
 		assertEquals("New Tutorial", result.getName());
+
+		verify(iTutorialRepository).save(newTutorial);
+	}
+	@Test
+	public void testDescriptionInCreateTutorial(){
+		//Arrange
+		Tutorial newTutorial = new Tutorial();
+
+		newTutorial.setDescription("Here goes a detailed description of tutorial");
+
+		when(iTutorialRepository.save(any(Tutorial.class))).thenReturn(newTutorial);
+
+		//Act
+		Tutorial result = tutorialServices.createTutorial(newTutorial);
+
+		//Assert
+		assertNotNull(result);
+
 		assertEquals("Here goes a detailed description of tutorial", result.getDescription());
 		verify(iTutorialRepository).save(newTutorial);
 	}
