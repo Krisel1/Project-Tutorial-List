@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-
-
+import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -38,7 +38,7 @@ public class TutorialServices {
     public void deleteTutorialById(int id){
         iTutorialRepository.deleteById(id);
     }
-    public void deleteAllTutorials(ArrayList<Tutorial> tutorials){
+    public void deleteAllTutorials(List<Tutorial> tutorials){
         iTutorialRepository.deleteAll(tutorials);
     }
 

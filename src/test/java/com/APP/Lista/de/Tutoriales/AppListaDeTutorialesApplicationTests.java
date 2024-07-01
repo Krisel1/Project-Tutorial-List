@@ -38,6 +38,7 @@ class AppListaDeTutorialesApplicationTests {
 		Tutorial newTutorial = new Tutorial();
 		newTutorial.setId(1);
 		newTutorial.setName("New Tutorial");
+		newTutorial.setDescription("Here goes a detailed description of tutorial");
 
 		when(iTutorialRepository.save(any(Tutorial.class))).thenReturn(newTutorial);
 
@@ -47,10 +48,14 @@ class AppListaDeTutorialesApplicationTests {
 		//Assert
 		assertNotNull(result);
 		assertEquals("New Tutorial", result.getName());
+		assertEquals("Here goes a detailed description of tutorial", result.getDescription());
 		verify(iTutorialRepository).save(newTutorial);
 	}
 
+	@Test
+	public void testGetAllTutorials(){
 
+	}
 
 
 	@Test

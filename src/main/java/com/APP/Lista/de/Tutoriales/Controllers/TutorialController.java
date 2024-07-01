@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -32,16 +33,16 @@ public class TutorialController {
 
         return "hola desde la peticion get de tutorial project";
     }
-    @PostMapping("/delete")
-    public void deleteTutorial(Tutorial newTutorial){
+    @DeleteMapping("/delete")
+    public void deleteTutorial(@RequestBody Tutorial newTutorial){
         tutorialServices.deleteTutorial(newTutorial);
     }
-    @PostMapping("/deleteById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public void deleteTutorialById(@PathVariable("id")int id){
         tutorialServices.deleteTutorialById(id);
     }
-    @PostMapping("/deleteAll")
-    public void deleteAllTutorials(ArrayList<Tutorial> tutorials){
+    @DeleteMapping("/deleteAll")
+    public void deleteAllTutorials(@RequestBody List<Tutorial> tutorials){
         tutorialServices.deleteAllTutorials(tutorials);
     }
 }
