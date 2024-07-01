@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
+
+
+
 @Service
 public class TutorialServices {
 
@@ -18,6 +21,12 @@ public class TutorialServices {
     public Tutorial createTutorial (Tutorial newTutorial){
         return iTutorialRepository.save(newTutorial);
     }
+//update
+/*public Tutorial updateTutorial (Tutorial newTutorial){
+        Optional<Tutorial> optionalTutorial = iTutorialRepository.findById(getId());
+
+    return iTutorialRepository.save(newTutorial);
+}*/
 //read
     public ArrayList<Tutorial> getAllTutorials(){
         return (ArrayList<Tutorial>) iTutorialRepository.findAll();
@@ -25,6 +34,9 @@ public class TutorialServices {
 //delete
     public void deleteTutorial(Tutorial newTutorial){
         iTutorialRepository.delete(newTutorial);
+    }
+    public void deleteTutorialById(int id){
+        iTutorialRepository.deleteById(id);
     }
     public void deleteAllTutorials(ArrayList<Tutorial> tutorials){
         iTutorialRepository.deleteAll(tutorials);
