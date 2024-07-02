@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
@@ -28,12 +29,12 @@ public class TutorialController {
 
     @PostMapping(path = "/tutorials")
     public Tutorial createTutorial(@RequestBody Tutorial newTutorial) {
-        return tutorialServices.createTutorial();
+        return tutorialServices.createTutorial(newTutorial);
     }
 
     @PutMapping(path = "/tutorials")
-    public Tutorial updateTutorial(@RequestBody Tutorial tutorial) {
-        return tutorialServices.updateTutorial();
+    public Tutorial updateTutorial(@RequestBody Tutorial Tutorial) {
+        return tutorialServices.updateTutorial(Tutorial);
     }
 
     @DeleteMapping(path = "/tutorials")
@@ -45,7 +46,7 @@ public class TutorialController {
     }
 
     @DeleteMapping(path = "/tutorials/")
-    public void deleteAllTutorials(List<Tutorials> tutorials){
+    public void deleteAllTutorials(){
 
     }
 }
