@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-//localhost:8080/tutorial
-
 @RestController
 @RequestMapping("/")
 @CrossOrigin(origins = "*")
@@ -19,9 +17,7 @@ public class TutorialController {
     TutorialServices tutorialServices;
 
     @GetMapping(path = "/tutorial")
-    public ArrayList<Tutorial> getAllTutorial() {
-        return tutorialServices.getAllTutorial();
+    public ArrayList<Tutorial> getAllTutorials() {
+        return tutorialServices.getAllTutorials();
     }
-
-
 }
