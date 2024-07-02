@@ -2,27 +2,31 @@ package com.APP.Lista.de.Tutoriales.Modules;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
-@Table
-@Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Getter
+@Entity
+@Table(name = "TUTORIALS")
 public class Tutorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @Column(name = "ID")
+    private Long id;
 
-    @Column(name="name")
-    private String name;
+    @Column(name = "TITLE", nullable = false)
+    private String title;
 
-    @Column(name="description")
+    @Column(name = "DESCRIPTION", length = 2000)
     private String description;
 
+    public Tutorial() {
+    }
+
+    public Tutorial(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 
 }
