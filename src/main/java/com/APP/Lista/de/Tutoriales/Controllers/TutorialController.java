@@ -21,7 +21,7 @@ public class TutorialController {
         return tutorialServices.getAllTutorials();
     }
 
-    @GetMapping(path = "/tutorial/{id}")
+    @GetMapping(path = "/tutorials/{id}")
     public Optional<Tutorial> getTutorialById(@PathVariable("id")int id){
         return tutorialServices.getTutorialById(id);
     }
@@ -38,6 +38,14 @@ public class TutorialController {
 
     @DeleteMapping(path = "/tutorials")
     public void deleteTutorial(@RequestBody Tutorial newTutorial) {
-        return tutorialServices.deleteTutorial();
+    }
+
+    @DeleteMapping(path = "/tutorials/{id}")
+    public void deleteTutorialById(int id){
+    }
+
+    @DeleteMapping(path = "/tutorials/")
+    public void deleteAllTutorials(List<Tutorials> tutorials){
+
     }
 }
