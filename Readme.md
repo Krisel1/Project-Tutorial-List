@@ -4,10 +4,11 @@ A client has requested a demo of a tutorial management system. In the future, th
 
 ## Table of Contents
 
--  [Project Objectives](#project-objectives)
--  [Project Description](#project-description)
--  [Implementation Details](#implementation-details)
--  [Action Plan](#action-plan)
+- [Project Objectives](#project-objectives)
+- [Project Description](#project-description)
+- [Implementation Details](#implementation-details)
+- [Implemented Technologies](#implemented-technologies)
+- [Action Plan](#action-plan)
 
 ### Project Objectives:
 
@@ -33,11 +34,11 @@ The objective of this project is to develop a tutorial management system in Java
 - Controller: Will act as an intermediary between the Model and the View, handling user requests and updating the view as necessary.
 
 2. System Components:
-   a. Model:
+a. Model:
    - Tutorial: A class representing a tutorial with attributes such as id, title, description, author, and duration.
-     b. View:
+b. View:
    - User Interface (UI): Could be a console application or a simple graphical interface (GUI) for the initial demo.
-     c. Controller:
+c. Controller:
    - TutorialController: A class that handles user requests and coordinates actions between the view and the model.
 
 3. MySQL Database:
@@ -51,7 +52,18 @@ The objective of this project is to develop a tutorial management system in Java
 - Interface Segregation Principle (ISP): Specific interfaces will be created for each set of functionalities.
 - Dependency Inversion Principle (DIP): High-level modules will not depend on low-level modules. Both will depend on abstractions.
 
-## Action Plan:
+
+### Implemented Technologies:
+
+Java: For developing the core application.
+MySQL: For the database.
+Spring Framework: For implementing MVC architecture, Dependency Injection, and other enterprise-level features.
+Hibernate: For Object-Relational Mapping (ORM) with the MySQL database.
+Maven: For project build and dependency management.
+*[JUnit: For testing the application components.](https://www.javaguides.net/2022/03/spring-boot-unit-testing-crud-rest-api-with-junit-and-mockito.html)
+ 
+
+### Action Plan:
 
 1. Database Design: Create the database and the Tutorials table.
 2. Model Development: Implement the Tutorial classes.
