@@ -8,16 +8,17 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "tutorials")
+@Table(name = "TUTORIALS")
 public class Tutorial {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "TITLE", nullable = false)
     private String title;
 
-    @Column(length = 2000)
+    @Column(name = "DESCRIPTION", length = 2000)
     private String description;
 
     public Tutorial() {

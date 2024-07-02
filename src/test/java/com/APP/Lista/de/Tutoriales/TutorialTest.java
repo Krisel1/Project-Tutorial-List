@@ -18,6 +18,7 @@ public class TutorialTest {
 
     @Test
     public void tesTitle() {
+
         Tutorial tutorial = new Tutorial();
         String title = "Java Basics";
         tutorial.setTitle(title);
@@ -26,6 +27,7 @@ public class TutorialTest {
 
     @Test
     public void testDescription() {
+
         Tutorial tutorial = new Tutorial();
         String description = "Introduction to java";
         tutorial.setDescription(description);
