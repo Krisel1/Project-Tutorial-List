@@ -55,12 +55,12 @@ c. Controller:
 
 ### Implemented Technologies:
 
-Java: For developing the core application.
-MySQL: For the database.
-Spring Framework: For implementing MVC architecture, Dependency Injection, and other enterprise-level features.
-Hibernate: For Object-Relational Mapping (ORM) with the MySQL database.
-Maven: For project build and dependency management.
-*[JUnit: For testing the application components.](https://www.javaguides.net/2022/03/spring-boot-unit-testing-crud-rest-api-with-junit-and-mockito.html)
+-Java: For developing the core application.
+-MySQL: For the database.
+-Spring Framework: For implementing MVC architecture, Dependency Injection, and other enterprise-level features.
+-Hibernate: For Object-Relational Mapping (ORM) with the MySQL database.
+-Maven: For project build and dependency management.
+-*[JUnit: For testing the application components.](https://www.javaguides.net/2022/03/spring-boot-unit-testing-crud-rest-api-with-junit-and-mockito.html)
  
 
 ### Action Plan:
