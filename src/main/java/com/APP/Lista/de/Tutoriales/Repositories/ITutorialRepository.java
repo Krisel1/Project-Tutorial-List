@@ -1,7 +1,10 @@
 package com.APP.Lista.de.Tutoriales.Repositories;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.APP.Lista.de.Tutoriales.Modules.Tutorial;
 import org.springframework.data.repository.CrudRepository;
 
-public interface ITutorialRepository extends CrudRepository<Tutorial, Long> {
+public interface ITutorialRepository extends CrudRepository<Tutorial, Integer> {
 }
+
+
+
