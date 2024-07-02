@@ -4,11 +4,10 @@ A client has requested a demo of a tutorial management system. In the future, th
 
 ## Table of Contents
 
-- [Project Objectives](#Project Objectives)
-- [Project Description](#Project Description)
-- [Implementation Details](#Implementation Details)
-- [Action Plan](#Action Plan)
-
+-  [Project Objectives](#project-objectives)
+-  [Project Description](#project-description)
+-  [Implementation Details](#implementation-details)
+-  [Action Plan](#action-plan)
 
 ### Project Objectives:
 
@@ -27,7 +26,7 @@ The objective of this project is to develop a tutorial management system in Java
 ### Implementation Details:
 
 1. System Architecture:
-The system will follow an MVC (Model-View-Controller) architecture and will implement the following main components:
+   The system will follow an MVC (Model-View-Controller) architecture and will implement the following main components:
 
 - Model: Will contain the classes that represent the data and business logic.
 - View: Will manage the presentation of data to the user.
@@ -36,21 +35,21 @@ The system will follow an MVC (Model-View-Controller) architecture and will impl
 2. System Components:
    a. Model:
    - Tutorial: A class representing a tutorial with attributes such as id, title, description, author, and duration.
-   b. View:
+     b. View:
    - User Interface (UI): Could be a console application or a simple graphical interface (GUI) for the initial demo.
-   c. Controller:
+     c. Controller:
    - TutorialController: A class that handles user requests and coordinates actions between the view and the model.
 
 3. MySQL Database:
-A MySQL database will be created with a “Tutorials” table that will contain the tutorial information.
+   A MySQL database will be created with a “Tutorials” table that will contain the tutorial information.
 
 4. SOLID Principles:
 
- - Single Responsibility Principle (SRP): Each class will have a single responsibility.
- - Open/Closed Principle (OCP): The system will allow for extension without modifying existing code.
- - Liskov Substitution Principle (LSP): Derived classes can be substituted for their base classes without altering functionality.
- - Interface Segregation Principle (ISP): Specific interfaces will be created for each set of functionalities.
- - Dependency Inversion Principle (DIP): High-level modules will not depend on low-level modules. Both will depend on abstractions.
+- Single Responsibility Principle (SRP): Each class will have a single responsibility.
+- Open/Closed Principle (OCP): The system will allow for extension without modifying existing code.
+- Liskov Substitution Principle (LSP): Derived classes can be substituted for their base classes without altering functionality.
+- Interface Segregation Principle (ISP): Specific interfaces will be created for each set of functionalities.
+- Dependency Inversion Principle (DIP): High-level modules will not depend on low-level modules. Both will depend on abstractions.
 
 ## Action Plan:
 
