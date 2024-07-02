@@ -1,4 +1,4 @@
-package com.APP.Lista.de.Tutoriales.Modules;
+package com.APP.Lista.de.Tutoriales.Models;
 
 
 import jakarta.persistence.*;

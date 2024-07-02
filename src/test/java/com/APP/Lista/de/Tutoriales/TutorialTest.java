@@ -1,6 +1,6 @@
 package com.APP.Lista.de.Tutoriales;
 
-import com.APP.Lista.de.Tutoriales.Modules.Tutorial;
+import com.APP.Lista.de.Tutoriales.Models.Tutorial;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
