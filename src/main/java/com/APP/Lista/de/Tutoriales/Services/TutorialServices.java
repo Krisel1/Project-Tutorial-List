@@ -22,6 +22,7 @@ public class TutorialServices {
         return iTutorialRepository.save(newTutorial);
     }
 
+
     //update
     public Tutorial updateTutorial(Tutorial tutorial) {
         return iTutorialRepository.save(tutorial);
