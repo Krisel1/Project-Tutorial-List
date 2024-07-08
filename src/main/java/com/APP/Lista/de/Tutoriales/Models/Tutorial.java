@@ -1,6 +1,5 @@
 package com.APP.Lista.de.Tutoriales.Models;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +9,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "TUTORIALS")
 public class Tutorial {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -28,5 +28,6 @@ public class Tutorial {
         this.title = title;
         this.description = description;
     }
+
 
 }
