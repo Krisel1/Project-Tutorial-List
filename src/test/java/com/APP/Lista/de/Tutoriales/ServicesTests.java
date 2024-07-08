@@ -1,6 +1,6 @@
 package com.APP.Lista.de.Tutoriales;
 
-import com.APP.Lista.de.Tutoriales.Modules.Tutorial;
+import com.APP.Lista.de.Tutoriales.Models.Tutorial;
 import com.APP.Lista.de.Tutoriales.Repositories.ITutorialRepository;
 import com.APP.Lista.de.Tutoriales.Services.TutorialServices;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ class ServicesTests {
     public void test_if_createTutorial_creates_Id() {
         //Arrange
         Tutorial newTutorial = new Tutorial();
-        newTutorial.setId(1);
+        newTutorial.setId(1L);
         when(iTutorialRepository.save(any(Tutorial.class))).thenReturn(newTutorial);
 
         //Act
@@ -90,9 +90,9 @@ class ServicesTests {
         //Arrange
         ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
 
-        Tutorial newTutorial1 = new Tutorial(1, "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial(2, "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial(3, "play guitar", "do agility exercises");
+        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
+        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
+        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
         listOfTutorials.add(newTutorial1);
         listOfTutorials.add(newTutorial2);
         listOfTutorials.add(newTutorial3);
@@ -116,9 +116,9 @@ class ServicesTests {
         //Arrange
         ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
 
-        Tutorial newTutorial1 = new Tutorial(1, "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial(2, "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial(3, "play guitar", "do agility exercises");
+        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
+        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
+        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
         listOfTutorials.add(newTutorial1);
         listOfTutorials.add(newTutorial2);
         listOfTutorials.add(newTutorial3);
@@ -142,9 +142,9 @@ class ServicesTests {
         //Arrange
         ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
 
-        Tutorial newTutorial1 = new Tutorial(1, "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial(2, "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial(3, "play guitar", "do agility exercises");
+        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
+        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
+        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
         listOfTutorials.add(newTutorial1);
         listOfTutorials.add(newTutorial2);
         listOfTutorials.add(newTutorial3);
@@ -161,9 +161,9 @@ class ServicesTests {
         //Arrange
         ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
 
-        Tutorial newTutorial1 = new Tutorial(1, "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial(2, "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial(3, "play guitar", "do agility exercises");
+        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
+        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
+        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
         listOfTutorials.add(newTutorial1);
         listOfTutorials.add(newTutorial2);
         listOfTutorials.add(newTutorial3);
