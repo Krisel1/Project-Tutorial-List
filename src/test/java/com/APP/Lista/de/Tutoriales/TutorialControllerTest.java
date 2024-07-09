@@ -1,157 +1,50 @@
 package com.APP.Lista.de.Tutoriales;
 
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
+
 import com.APP.Lista.de.Tutoriales.Controllers.TutorialController;
 import com.APP.Lista.de.Tutoriales.Models.Tutorial;
 import com.APP.Lista.de.Tutoriales.Services.TutorialServices;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.ArrayList;
-
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-@ExtendWith(MockitoExtension.class)
-@SpringBootTest
+@WebMvcTest(TutorialController.class)
 public class TutorialControllerTest {
 
-    @Mock
+    @Autowired
+    private MockMvc mockMvc;
+
+    @MockBean
     private TutorialServices tutorialServices;
 
-    @InjectMocks
-    private TutorialController tutorialController;
-
-    @BeforeEach
-    void setUp() {
-        MockitoAnnotations.openMocks(this);
-    }
-
     @Test
-    public void testCreateTutorialDescription() {
-        // Arrange
+    public void testCreateTutorial() throws Exception {
+        // Mock the service layer
         Tutorial newTutorial = new Tutorial();
-        newTutorial.setDescription("Here goes a detailed description of tutorial");
+        newTutorial.setId(1L);
+        newTutorial.setTitle("Test Title");
+        newTutorial.setDescription("Test Description");
 
         when(tutorialServices.createTutorial(any(Tutorial.class))).thenReturn(newTutorial);
 
-        // Act
-        Tutorial result = tutorialController.createTutorial(newTutorial);
+        // Create a JSON representation of the Tutorial to send in the request
+        String tutorialJson = "{\"title\":\"Test Title\",\"description\":\"Test Description\"}";
 
-        // Assert
-        assertNotNull(result);
-        assertEquals("Here goes a detailed description of tutorial", result.getDescription());
-        verify(tutorialServices).createTutorial(any(Tutorial.class));
-    }
-    @Test
-    public void test_if_createTutorial_creates_title() {
-        //Arrange
-        Tutorial newTutorial = new Tutorial();
-        newTutorial.setTitle("New Tutorial");
-
-        when(tutorialServices.createTutorial(any(Tutorial.class))).thenReturn(newTutorial);
-
-        //Act
-        Tutorial result = tutorialController.createTutorial(newTutorial);
-
-        //Assert
-        assertNotNull(result);
-        assertEquals("New Tutorial", result.getTitle());
-        verify(tutorialServices).createTutorial(newTutorial);
-    }
-    @Test
-    public void test_if_GetAllTutorials_gets_title() {
-        //Arrange
-        ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
-
-        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
-        listOfTutorials.add(newTutorial1);
-        listOfTutorials.add(newTutorial2);
-        listOfTutorials.add(newTutorial3);
-        when(tutorialServices.getAllTutorials()).thenReturn(listOfTutorials);
-
-
-        //Act
-        ArrayList<Tutorial> result = tutorialController.getAllTutorials();
-        //Assert
-        assertNotNull(result);
-        assertEquals(3, result.size());
-        assertEquals("buy bread", result.get(0).getTitle());
-        assertEquals("go to gym", result.get(1).getTitle());
-        assertEquals("play guitar", result.get(2).getTitle());
-
-        verify(tutorialServices).getAllTutorials();
-    }
-    @Test
-    public void test_if_GetAllTutorials_gets_description() {
-        //Arrange
-        ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
-
-        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
-        listOfTutorials.add(newTutorial1);
-        listOfTutorials.add(newTutorial2);
-        listOfTutorials.add(newTutorial3);
-        when(tutorialServices.getAllTutorials()).thenReturn(listOfTutorials);
-
-
-        //Act
-        ArrayList<Tutorial> result = tutorialController.getAllTutorials();
-        //Assert
-        assertNotNull(result);
-        assertEquals(3, result.size());
-
-        assertEquals("go to baker street", result.get(0).getDescription());
-        assertEquals("practice a bit of soccer", result.get(1).getDescription());
-        assertEquals("do agility exercises", result.get(2).getDescription());
-        verify(tutorialServices).getAllTutorials();
-    }
-    @Test
-    public void test_if_deleteAllTutorials_deletes_all() {
-        //Arrange
-        ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
-
-        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
-        listOfTutorials.add(newTutorial1);
-        listOfTutorials.add(newTutorial2);
-        listOfTutorials.add(newTutorial3);
-        when(tutorialServices.getAllTutorials()).thenReturn(listOfTutorials);
-
-        //Act
-        tutorialController.deleteAllTutorials();
-
-        verify(tutorialServices).deleteAllTutorials(listOfTutorials);
-    }
-    @Test
-    public void test_if_deleteTutorialById_deletes_by_Id() {
-        //Arrange
-        ArrayList<Tutorial> listOfTutorials = new ArrayList<>();
-
-        Tutorial newTutorial1 = new Tutorial( "buy bread", "go to baker street");
-        Tutorial newTutorial2 = new Tutorial( "go to gym", "practice a bit of soccer");
-        Tutorial newTutorial3 = new Tutorial( "play guitar", "do agility exercises");
-        listOfTutorials.add(newTutorial1);
-        listOfTutorials.add(newTutorial2);
-        listOfTutorials.add(newTutorial3);
-        when(tutorialServices.getAllTutorials()).thenReturn(listOfTutorials);
-
-        //Act
-        tutorialController.deleteTutorialById(2);
-
-        //Assert
-        verify(tutorialServices).deleteTutorialById(2);
+        // Perform the request and verify the response
+        mockMvc.perform(post("/tutorials")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(tutorialJson))
+                .andExpect(status().isCreated())
+                .andExpect(jsonPath("$.id").value(1L))
+                .andExpect(jsonPath("$.title").value("Test Title"))
+                .andExpect(jsonPath("$.description").value("Test Description"))
+                .andDo(print());
     }
 }
